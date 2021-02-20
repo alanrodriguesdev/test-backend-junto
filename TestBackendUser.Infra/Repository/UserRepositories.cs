@@ -25,8 +25,9 @@ namespace TestBackendUser.Infra.Repository
         {
             using (var _conn = ConnectionFactory.GetOpenConnection())
             {
-                _conn.Execute(update, new { usuario });
-                return SelectByUserId(usuario.Id);
+                int usuarioId = usuario.Id;
+                _conn.Execute(update, new { usuario.Nome,usuario.Email,usuario.Senha, usuarioId });
+                return SelectByUserId(usuarioId);
             }
         }
 

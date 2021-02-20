@@ -28,7 +28,7 @@ namespace TestBackendUser.Infra.Repository
 
         #region UPDATE's
         private const string update = @"
-          UPDATE Usuario SET Nome = @nome, Email = @email, Senha = @senha
+          UPDATE Usuario SET Nome = @Nome, Email = @Email, Senha = @Senha
                 WHERE Id = @usuarioId;   ";
         #endregion
 

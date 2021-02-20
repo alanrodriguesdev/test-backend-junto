@@ -298,3 +298,17 @@ C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\net5.0\TestBacken
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\net5.0\ref\TestBackendUser.Test.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\net5.0\TestBackendUser.Test.pdb
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\net5.0\TestBackendUser.Test.genruntimeconfig.cache
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\AutoMapper.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Scrutor.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\Swashbuckle.AspNetCore.Filters.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

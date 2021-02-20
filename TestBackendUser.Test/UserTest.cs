@@ -4,6 +4,7 @@ using NUnit.Framework;
 using System;
 using TestBackendUser.CrossCutting;
 using TestBackendUser.Domain.Commands;
+using TestBackendUser.Domain.Models;
 using TestBackendUser.Infra.Repository;
 using TestBackendUser.Service;
 
@@ -41,6 +42,135 @@ namespace TestBackendUser.Test
             var result = userService.ValidatesUser(command);
 
             Assert.IsTrue(result.Count == 0);
+        }
+        [Test]
+        public void TestIsNotAlreadyCreate()
+        {
+            var userService = new UserService(new UserRepositories(),_mapper);
+
+            var command = new UserCommand()
+            {
+                Name = "teste",
+                Email = "email@email.com",
+                Password = "senha123"
+            };
+
+            var result = userService.ValidatesUser(command);
+
+            Assert.IsFalse(result.Count > 0);
+        }
+        [Test]
+        public void TestIsAlreadyCreate()
+        {
+            var userService = new UserService(new UserRepositories(), _mapper);
+
+            var command = new UserCommand()
+            {
+                Name = "teste",
+                Email = "email@email.com",
+                Password = "senha123"
+            };
+
+            var result = userService.ValidatesUser(command);
+
+            Assert.IsTrue(result.Count == 0);
+        }
+        [Test]
+        public void TestValidationUpdate()
+        {
+            var userService = new UserService(new UserRepositories(), _mapper);
+
+            var command = new UserCommand()
+            {
+                Id = 4,
+                Name = "teste",
+                Email = "email@email.com",
+                Password = "senha123"
+            };
+
+            var result = userService.ValidatesUser(command);
+
+            Assert.IsTrue(result.Count == 0);
+        }
+
+        [Test]
+        public void TestValidationDelete()
+        {
+            var userService = new UserService(new UserRepositories(), _mapper);
+
+            var command = new DeleteUserCommand()
+            {
+                UserId = 4
+            };
+
+            var result = userService.ValidaDelete(command);
+
+            Assert.IsTrue(result.Count == 0);
+        }
+
+        [Test]
+        public void TestLogin()
+        {
+            var userService = new UserService(new UserRepositories(), _mapper);
+            var userRepository = new UserRepositories();
+
+            var guid = Guid.NewGuid().ToString();
+
+            var usuario = new Usuario()
+            {
+                Nome = "Teste 1234",
+                Email = $"email{guid.Substring(0, 6)}@email.com",
+                Senha = guid.Substring(0, 9)
+            };
+
+            userRepository.Insert(usuario);
+
+            var result = userService.Login(new LoginCommand() { Email = usuario.Email, Password = usuario.Senha });           
+
+            Assert.IsTrue(result.Data as Usuario != null);
+        }
+
+        [Test]
+        public void TestRepoUpdate()
+        {
+            var userRepository = new UserRepositories();
+
+            var guid = Guid.NewGuid().ToString();
+
+            var usuario = new Usuario()
+            {
+                Nome = $"Teste{guid.Substring(0, 6)}",
+                Email = $"email{guid.Substring(0, 6)}@email.com",
+                Senha = guid.Substring(0, 9)
+            };
+
+            usuario.Id = userRepository.Insert(usuario).Id;
+            usuario.Email = $"email_email{guid.Substring(0, 6)}@email.com";
+
+            userRepository.Update(usuario);
+
+            var anotherUser = userRepository.ExistEmail(usuario.Email);
+
+            Assert.IsTrue(anotherUser);
+        }
+
+        [Test]
+        public void TestRepoDelete()
+        {
+            var userRepository = new UserRepositories();
+
+            var guid = Guid.NewGuid().ToString();
+
+            var usuario = new Usuario()
+            {
+                Nome = $"Teste{guid.Substring(0, 6)}",
+                Email = $"email{guid.Substring(0, 6)}@email.com",
+                Senha = guid
+            };
+
+            Usuario newUser = userRepository.Insert(usuario);
+
+            Assert.That(() => userRepository.Delete(newUser.Id), Throws.Nothing);
         }
     }
 }
