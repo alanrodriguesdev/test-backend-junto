@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using System;
+using System.Collections.Generic;
 using TestBackendUser.Domain.Models;
 
 namespace TestBackendUser.Infra.Repository
@@ -44,6 +45,13 @@ namespace TestBackendUser.Infra.Repository
             using (var _conn = ConnectionFactory.GetOpenConnection())
             {
                 return _conn.QueryFirstOrDefault<Usuario>(selecUsuario, new { usuarioId });
+            }
+        }
+        public IEnumerable<Usuario> SelectAllUsers()
+        {
+            using (var _conn = ConnectionFactory.GetOpenConnection())
+            {
+                return _conn.Query<Usuario>(selecTodosUsuario);
             }
         }
         public void Delete(int usuarioId)

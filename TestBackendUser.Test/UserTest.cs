@@ -1,19 +1,24 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TestBackendUser.CrossCutting;
 using TestBackendUser.Domain.Commands;
 using TestBackendUser.Domain.Models;
 using TestBackendUser.Infra.Repository;
 using TestBackendUser.Service;
+using TestBackendUser.Service.ViewModels;
 
 namespace TestBackendUser.Test
 {
     public class UserTest
     {
         public IConfiguration Configuration { get; set; }
-        public IMapper _mapper { get; set; }
+        public IMapper _mapper { get; set; }        
+        
 
 
         [SetUp]
@@ -24,7 +29,7 @@ namespace TestBackendUser.Test
             string filename = @"TestBackendUser.DataBase.db";
             string filePath = AppDomain.CurrentDomain.BaseDirectory + filename;
             
-            ConnectionStrings.UserConnectionString = Configuration.GetConnectionString("UserConnectionString").Replace("@path", $"{filePath}");// @"Data Source=" + filePath + "";
+            ConnectionStrings.UserConnectionString = Configuration.GetConnectionString("UserConnectionString").Replace("@path", $"{filePath}");
         }
 
         [Test]
@@ -42,6 +47,15 @@ namespace TestBackendUser.Test
             var result = userService.ValidatesUser(command);
 
             Assert.IsTrue(result.Count == 0);
+        }
+        [Test]
+        public void TestGetAllUsers()
+        {
+            var userRepository = new UserRepositories();
+
+            var result = userRepository.SelectAllUsers() ;
+
+            Assert.IsTrue(result.Count()  > 0);
         }
         [Test]
         public void TestIsNotAlreadyCreate()

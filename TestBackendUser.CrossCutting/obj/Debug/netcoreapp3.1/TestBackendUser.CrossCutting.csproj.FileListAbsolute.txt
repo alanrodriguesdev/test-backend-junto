@@ -9,7 +9,6 @@ D:\ProjetosAlan\TestBackendUser\TestBackendUser.CrossCutting\obj\Debug\netcoreap
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.CrossCutting\bin\Debug\netcoreapp3.1\TestBackendUser.CrossCutting.deps.json
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.CrossCutting\bin\Debug\netcoreapp3.1\TestBackendUser.CrossCutting.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.CrossCutting\bin\Debug\netcoreapp3.1\TestBackendUser.CrossCutting.pdb
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.CrossCutting\obj\Debug\netcoreapp3.1\TestBackendUser.CrossCutting.csprojAssemblyReference.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.CrossCutting\obj\Debug\netcoreapp3.1\TestBackendUser.CrossCutting.AssemblyInfoInputs.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.CrossCutting\obj\Debug\netcoreapp3.1\TestBackendUser.CrossCutting.AssemblyInfo.cs
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.CrossCutting\obj\Debug\netcoreapp3.1\TestBackendUser.CrossCutting.csproj.CoreCompileInputs.cache

@@ -54,5 +54,15 @@ namespace TestBackendUser.Api.Controllers
 
             return Ok(response);
         }
+        [HttpGet]
+        public async Task<ActionResult> GetAllUsers()
+        {
+            var response = _userService.GetAllUsers();
+
+            if (response.Errors.Count > 0 || !response.Success)
+                return BadRequest(response);
+
+            return Ok(response);
+        }
     }
 }

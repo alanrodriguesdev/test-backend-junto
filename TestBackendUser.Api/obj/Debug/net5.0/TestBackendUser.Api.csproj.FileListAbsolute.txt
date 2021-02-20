@@ -151,3 +151,4 @@ C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\net5.0\Newtonsoft.
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\net5.0\Scrutor.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Annotations.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Filters.dll
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll

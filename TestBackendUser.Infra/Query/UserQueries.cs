@@ -21,6 +21,8 @@ namespace TestBackendUser.Infra.Repository
         private const string selecUsuario = @"
             SELECT * FROM Usuario
                WHERE Id = @usuarioId;";
+        private const string selecTodosUsuario = @"
+            SELECT * FROM Usuario;      ";
         private const string selectUsuarioByEmailAndPasswaord = @" 
                 SELECT * FROM Usuario
                 WHERE email = @email AND senha = @password;";

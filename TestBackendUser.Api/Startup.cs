@@ -64,6 +64,7 @@ namespace TestBackendUser.Api
                 cfg.CreateMap<Usuario, UsuarioViewModel>()
                 .ForMember(x => x.Name, mo => mo.MapFrom(dest => dest.Nome))
                 .ForMember(x => x.Password, mo => mo.MapFrom(dest => dest.Senha));
+
             });
             IMapper mapper = config.CreateMapper();
             services.AddSingleton(mapper);

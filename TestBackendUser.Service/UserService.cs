@@ -40,7 +40,7 @@ namespace TestBackendUser.Service
             {
                 return new UserResponse(false, ex, new List<string>());
             }
-           
+
         }
         public UserResponse Insert(UserCommand command)
         {
@@ -62,8 +62,33 @@ namespace TestBackendUser.Service
             catch (Exception ex)
             {
                 return new UserResponse(false, ex, new List<string>());
-            }        
-           
+            }
+
+        }
+        public UserResponse GetAllUsers()
+        {
+            try
+            {
+                var users = _userRepositories.SelectAllUsers();
+                List<UsuarioViewModel> usuarios = new List<UsuarioViewModel>();
+                if (users != null)
+                {
+                    foreach (var item in users)
+                    {
+                        usuarios.Add(Mapper(item));
+                    }
+
+                    return new UserResponse(true, usuarios, new List<string>());
+                }
+               
+
+                return new UserResponse(false, null, new List<string>());
+            }
+            catch (Exception ex)
+            {
+                return new UserResponse(false, ex, new List<string>());
+            }
+
         }
         public UserResponse Update(UserCommand command)
         {
@@ -90,7 +115,7 @@ namespace TestBackendUser.Service
             catch (Exception ex)
             {
                 return new UserResponse(false, ex, new List<string>());
-            }            
+            }
         }
         public UserResponse Delete(DeleteUserCommand command)
         {
@@ -113,7 +138,7 @@ namespace TestBackendUser.Service
             {
                 return new UserResponse(false, ex, new List<string>());
             }
-           
+
         }
         private UsuarioViewModel Mapper(Usuario usuario)
         {
