@@ -99,8 +99,8 @@ namespace TestBackendUser.Service
                 var usuario = new Usuario()
                 {
                     Id = command.Id,
+                    Nome = command.Name,
                     Email = command.Email,
-                    Nome = command.Email,
                     Senha = command.Password
                 };
 

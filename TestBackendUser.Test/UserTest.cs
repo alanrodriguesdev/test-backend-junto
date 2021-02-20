@@ -1,16 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using TestBackendUser.CrossCutting;
 using TestBackendUser.Domain.Commands;
 using TestBackendUser.Domain.Models;
 using TestBackendUser.Infra.Repository;
 using TestBackendUser.Service;
-using TestBackendUser.Service.ViewModels;
 
 namespace TestBackendUser.Test
 {

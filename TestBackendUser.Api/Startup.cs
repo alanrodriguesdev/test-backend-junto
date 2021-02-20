@@ -44,6 +44,8 @@ namespace TestBackendUser.Api
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddControllers();
+
+            #region Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TestBackendUser.Api", Version = "v1" });
@@ -58,6 +60,7 @@ namespace TestBackendUser.Api
 
                 c.OperationFilter<SecurityRequirementsOperationFilter>();
             });
+            #endregion
 
             var config = new MapperConfiguration(cfg =>
             {
@@ -107,6 +110,7 @@ namespace TestBackendUser.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
