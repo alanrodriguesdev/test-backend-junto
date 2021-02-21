@@ -1,24 +1,26 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TestBackendUser.Domain.Commands;
+using TestBackendUser.Domain.Interfaces;
 using TestBackendUser.Domain.Models;
 using TestBackendUser.Domain.Response;
-using TestBackendUser.Infra.Repository;
+using TestBackendUser.Service.Interfaces;
 using TestBackendUser.Service.ViewModels;
 
 namespace TestBackendUser.Service
 {
-    public class UserService : UserBaseService
+    public class UserService : UserBaseService, IUserService
     {
-        private readonly UserRepositories _userRepositories;
+        private readonly IUserRepository _userRepositories;
         IMapper _mapper;
-        public UserService(UserRepositories userRepositories, IMapper mapper)
+        public UserService(IUserRepository userRepositories, IMapper mapper)
         {
             _userRepositories = userRepositories;
             _mapper = mapper;
         }
-        public UserResponse Login(LoginCommand command)
+        public async Task<UserResponse> Login(LoginCommand command)
         {
             try
             {
@@ -26,7 +28,7 @@ namespace TestBackendUser.Service
                 Usuario user = null;
 
                 if (errors.Count == 0)
-                    user = _userRepositories.VerifyByLoginAndPassword(command.Email, command.Password);
+                    user = await _userRepositories.VerifyByLoginAndPassword(command.Email, command.Password);
 
                 if (user == null)
                 {
@@ -42,19 +44,19 @@ namespace TestBackendUser.Service
             }
 
         }
-        public UserResponse Insert(UserCommand command)
+        public async Task<UserResponse> Insert(UserCommand command)
         {
             try
             {
                 var errors = ValidatesUser(command);
 
-                if (_userRepositories.ExistEmail(command.Email))
+                if (await _userRepositories.ExistEmail(command.Email))
                     errors.Add("Este login já foi cadastrado no sistema");
 
                 if (errors.Count == 0)
                 {
-                    Usuario newUser = _userRepositories.Insert(new Usuario() { Email = command.Email, Nome = command.Email, Senha = command.Password });
-                    return new UserResponse(newUser != null ? true : false, Mapper(newUser), errors);
+                    Usuario newUser = await _userRepositories.Insert(new Usuario() { Email = command.Email, Nome = command.Name, Senha = command.Password });
+                    return new UserResponse(newUser != null, Mapper(newUser), errors);
                 }
 
                 return new UserResponse(false, null, errors);
@@ -65,12 +67,12 @@ namespace TestBackendUser.Service
             }
 
         }
-        public UserResponse GetAllUsers()
+        public async Task<UserResponse> GetAllUsers()
         {
             try
             {
-                var users = _userRepositories.SelectAllUsers();
-                List<UsuarioViewModel> usuarios = new List<UsuarioViewModel>();
+                var users = await _userRepositories.SelectAllUsers();
+                List<UpdateUsuarioViewModel> usuarios = new List<UpdateUsuarioViewModel>();
                 if (users != null)
                 {
                     foreach (var item in users)
@@ -80,7 +82,7 @@ namespace TestBackendUser.Service
 
                     return new UserResponse(true, usuarios, new List<string>());
                 }
-               
+
 
                 return new UserResponse(false, null, new List<string>());
             }
@@ -90,24 +92,44 @@ namespace TestBackendUser.Service
             }
 
         }
-        public UserResponse Update(UserCommand command)
+        public async Task<UserResponse> GetUserById(int userId)
         {
             try
             {
-                var errors = ValidatesUser(command);
+                var user = await _userRepositories.SelectByUserId(userId);
+                List<UpdateUsuarioViewModel> usuarios = new List<UpdateUsuarioViewModel>();
+                if (user != null)
+                    return new UserResponse(user != null, Mapper(user), new List<string>());
 
-                var usuario = new Usuario()
-                {
-                    Id = command.Id,
-                    Nome = command.Name,
-                    Email = command.Email,
-                    Senha = command.Password
-                };
+                return new UserResponse(false, null, new List<string>());
+            }
+            catch (Exception ex)
+            {
+                return new UserResponse(false, ex, new List<string>());
+            }
+        }
+        public async Task<UserResponse> Update(UpdateUserCommand command)
+        {
+            try
+            {
+                var errors = ValidatesUpdateUser(command);
+
+                if ( await _userRepositories.ExistEmail(command.Email))
+                    errors.Add("Este email já foi cadastrado no sistema");
 
                 if (errors.Count == 0)
                 {
-                    Usuario updateUser = _userRepositories.Update(usuario);
-                    return new UserResponse(updateUser != null ? true : false, Mapper(updateUser), errors);
+                    var usuario = new Usuario()
+                    {
+                        Id = command.Id,
+                        Nome = command.Name,
+                        Email = command.Email,
+                        Senha = command.Password
+                    };
+
+
+                    Usuario updateUser = await _userRepositories.Update(usuario);
+                    return new UserResponse(updateUser != null, Mapper(updateUser, true), errors);
                 }
 
                 return new UserResponse(false, null, errors);
@@ -117,7 +139,7 @@ namespace TestBackendUser.Service
                 return new UserResponse(false, ex, new List<string>());
             }
         }
-        public UserResponse Delete(DeleteUserCommand command)
+        public async Task<UserResponse> Delete(DeleteUserCommand command)
         {
             try
             {
@@ -140,9 +162,12 @@ namespace TestBackendUser.Service
             }
 
         }
-        private UsuarioViewModel Mapper(Usuario usuario)
+        private UpdateUsuarioViewModel Mapper(Usuario usuario, bool isUpdate = false)
         {
-            return _mapper.Map<UsuarioViewModel>(usuario);
+            if (!isUpdate)
+                return _mapper.Map<UpdateUsuarioViewModel>(usuario);
+            else
+                return _mapper.Map<UpdateUsuarioViewModel>(usuario);
         }
     }
 }

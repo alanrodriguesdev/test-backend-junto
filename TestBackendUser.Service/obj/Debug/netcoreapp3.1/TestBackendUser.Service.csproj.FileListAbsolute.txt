@@ -14,6 +14,10 @@ D:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\
 D:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.csproj.CopyComplete
 D:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.dll
 D:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.pdb
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.csprojAssemblyReference.cache
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.AssemblyInfoInputs.cache
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.AssemblyInfo.cs
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.csproj.CoreCompileInputs.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\bin\Debug\netcoreapp3.1\TestBackendUser.Service.deps.json
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\bin\Debug\netcoreapp3.1\TestBackendUser.Service.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\bin\Debug\netcoreapp3.1\TestBackendUser.Service.pdb
@@ -23,10 +27,6 @@ C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\bin\Debug\netcoreapp3.1\
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\bin\Debug\netcoreapp3.1\TestBackendUser.Domain.pdb
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\bin\Debug\netcoreapp3.1\TestBackendUser.Infra.pdb
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\bin\Debug\netcoreapp3.1\TestBackendUser.CrossCutting.pdb
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.csprojAssemblyReference.cache
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.AssemblyInfoInputs.cache
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.AssemblyInfo.cs
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.csproj.CoreCompileInputs.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.csproj.CopyComplete
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Service\obj\Debug\netcoreapp3.1\TestBackendUser.Service.pdb

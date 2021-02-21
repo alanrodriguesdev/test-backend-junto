@@ -1,65 +1,61 @@
 ﻿using Dapper;
-using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using TestBackendUser.Domain.Interfaces;
 using TestBackendUser.Domain.Models;
 
 namespace TestBackendUser.Infra.Repository
 {
-    public partial class UserRepositories
+    public partial class UserRepositories : IUserRepository
     {
-        public Usuario VerifyByLoginAndPassword(string email, string password)
+        public async Task<Usuario> VerifyByLoginAndPassword(string email, string password)
+        {
+            using var _conn = ConnectionFactory.GetOpenConnection();
+                return await _conn.QueryFirstOrDefaultAsync<Usuario>(selectUsuarioByEmailAndPasswaord, new { email, password });
+
+        }
+        public async Task<Usuario> Insert(Usuario usuario)
         {
             using (var _conn = ConnectionFactory.GetOpenConnection())
             {
-                return _conn.QueryFirstOrDefault<Usuario>(selectUsuarioByEmailAndPasswaord, new { email, password });
+                int userId = await _conn.QueryFirstOrDefaultAsync<int>(insertUser, usuario);
+                return await SelectByUserId(userId);
             }
         }
-        public Usuario Insert(Usuario usuario)
-        {          
-            using (var _conn = ConnectionFactory.GetOpenConnection())
-            {
-                int userId =_conn.QueryFirstOrDefault<int>(insertUser, usuario);
-                return SelectByUserId(userId);
-            }
-        }
-        public Usuario Update(Usuario usuario)
+        public async Task<Usuario> Update(Usuario usuario)
         {
             using (var _conn = ConnectionFactory.GetOpenConnection())
             {
                 int usuarioId = usuario.Id;
-                _conn.Execute(update, new { usuario.Nome,usuario.Email,usuario.Senha, usuarioId });
-                return SelectByUserId(usuarioId);
+                await _conn.ExecuteAsync(update, new { usuario.Nome, usuario.Email, usuario.Senha, usuarioId });
+                return await SelectByUserId(usuarioId);
             }
         }
 
-        public bool ExistEmail(string email)
+        public async Task<bool> ExistEmail(string email)
         {
 
-            using (var _conn = ConnectionFactory.GetOpenConnection())
-            {
-                return _conn.ExecuteScalar<bool>(selectEmail, new { email });
-            }
+            using var _conn = ConnectionFactory.GetOpenConnection();            
+                return await _conn.ExecuteScalarAsync<bool>(selectEmail, new { email });
+            
         }
-        public Usuario SelectByUserId(int usuarioId)
+        public async Task<Usuario> SelectByUserId(int usuarioId)
         {
-            using (var _conn = ConnectionFactory.GetOpenConnection())
-            {
-                return _conn.QueryFirstOrDefault<Usuario>(selecUsuario, new { usuarioId });
-            }
+            using var _conn = ConnectionFactory.GetOpenConnection();            
+                return await _conn.QueryFirstOrDefaultAsync<Usuario>(selecUsuario, new { usuarioId });
+            
         }
-        public IEnumerable<Usuario> SelectAllUsers()
+        public async Task<IEnumerable<Usuario>> SelectAllUsers()
         {
-            using (var _conn = ConnectionFactory.GetOpenConnection())
-            {
-                return _conn.Query<Usuario>(selecTodosUsuario);
-            }
+            using (var _conn = ConnectionFactory.GetOpenConnection())            
+                return await _conn.QueryAsync<Usuario>(selecTodosUsuario);
+            
         }
-        public void Delete(int usuarioId)
+        public async void Delete(int usuarioId)
         {
-            using (var _conn = ConnectionFactory.GetOpenConnection())
-            {
-                _conn.Execute(delete, new { usuarioId });
-            }
+            using var _conn = ConnectionFactory.GetOpenConnection();            
+                await _conn.ExecuteAsync(delete, new { usuarioId });
+            
         }
     }
 }

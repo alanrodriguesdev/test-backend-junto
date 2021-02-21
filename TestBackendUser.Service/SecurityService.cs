@@ -3,13 +3,15 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 using TestBackendUser.Domain.Models;
+using TestBackendUser.Service.Interfaces;
 
 namespace TestBackendUser.Service
 {
-    public class SecurityService
+    public class SecurityService : ISecurityService
     {
-        public string GerarJwt(Usuario usuario)
+        public async Task<string> GerarJwt(Usuario usuario)
         {
             var identityClaims = new ClaimsIdentity();
             var claims = new[]

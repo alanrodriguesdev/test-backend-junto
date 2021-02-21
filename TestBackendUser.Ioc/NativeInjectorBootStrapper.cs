@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using TestBackendUser.Domain.Interfaces;
 using TestBackendUser.Infra.Repository;
 using TestBackendUser.Service;
+using TestBackendUser.Service.Interfaces;
 
 namespace TestBackendUser.Ioc
 {
@@ -8,9 +10,9 @@ namespace TestBackendUser.Ioc
     {
         public static void RegisterServices(IServiceCollection services)
         {
-            services.AddTransient<UserService>();
-            services.AddTransient<UserRepositories>();
-            services.AddTransient<SecurityService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, UserRepositories>();
+            services.AddScoped<ISecurityService, SecurityService>();
         }
     }
 }

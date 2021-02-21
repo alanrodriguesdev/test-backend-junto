@@ -1,3 +1,8 @@
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.csprojAssemblyReference.cache
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.AssemblyInfoInputs.cache
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.AssemblyInfo.cs
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.csproj.CoreCompileInputs.cache
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\netcoreapp3.1\appsettings.json
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\netcoreapp3.1\TestBackendUser.Api.exe
@@ -67,12 +72,7 @@ C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\netcoreapp3.1\Test
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\netcoreapp3.1\TestBackendUser.Service.pdb
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\netcoreapp3.1\TestBackendUser.Domain.pdb
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\bin\Debug\netcoreapp3.1\TestBackendUser.Infra.pdb
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.csprojAssemblyReference.cache
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.AssemblyInfoInputs.cache
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.AssemblyInfo.cs
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.csproj.CoreCompileInputs.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.MvcApplicationPartsAssemblyInfo.cs
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\TestBackendUser.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\staticwebassets\TestBackendUser.Api.StaticWebAssets.Manifest.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\staticwebassets\TestBackendUser.Api.StaticWebAssets.xml
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Api\obj\Debug\netcoreapp3.1\scopedcss\bundle\TestBackendUser.Api.styles.css

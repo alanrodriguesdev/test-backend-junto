@@ -1,11 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TestBackendUser.Domain.Commands;
-using TestBackendUser.Service;
+using TestBackendUser.Service.Interfaces;
 
 namespace TestBackendUser.Api.Controllers
 {
@@ -13,10 +9,10 @@ namespace TestBackendUser.Api.Controllers
     [ApiController]
     public class SecurityController : ControllerBase
     {
-        private readonly UserService _userService;
-        private readonly SecurityService _securityService;
+        private readonly IUserService _userService;
+        private readonly ISecurityService _securityService;
 
-        public SecurityController(UserService userService, SecurityService securityService)
+        public SecurityController(IUserService userService, ISecurityService securityService)
         {
             _userService = userService;
             _securityService = securityService;
@@ -25,12 +21,12 @@ namespace TestBackendUser.Api.Controllers
         [Route("login")]
         public async Task<ActionResult> Login(LoginCommand command)
         {
-            var response = _userService.Login(command);
+            var response = await _userService.Login(command);
 
             if (response.Errors.Count > 0 || !response.Success)
                 return BadRequest(response);
 
-            var token = _securityService.GerarJwt(response.Data);
+            var token = await _securityService.GerarJwt(response.Data);
 
             return Ok(token);
         }

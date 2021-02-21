@@ -15,11 +15,7 @@ namespace TestBackendUser.Infra
     {
         public static DbConnection GetOpenConnection()
         {
-            var connection = DataBaseConfiguration();
-            //string filename = @"TestBackendUser.DataBase.db";
-            //string filePath = AppDomain.CurrentDomain.BaseDirectory + filename;
-            //string connectionString = ConnectionStrings.UserConnectionString.Replace("@path", $"{filePath}");// @"Data Source=" + filePath + "";
-            //var connection = new SqliteConnection(connectionString);
+            var connection = DataBaseConfiguration();          
 
             if (connection.State != System.Data.ConnectionState.Open)
                 connection.Open();

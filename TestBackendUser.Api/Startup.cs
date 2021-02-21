@@ -2,20 +2,15 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using TestBackendUser.CrossCutting;
 using TestBackendUser.Domain.Models;
 using TestBackendUser.Ioc;
@@ -62,16 +57,23 @@ namespace TestBackendUser.Api
             });
             #endregion
 
+            #region Mapper
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Usuario, UsuarioViewModel>()
+                cfg.CreateMap<Usuario, UpdateUsuarioViewModel>()
+                .ForMember(x => x.Name, mo => mo.MapFrom(dest => dest.Nome))
+                .ForMember(x => x.Password, mo => mo.MapFrom(dest => dest.Senha));
+
+                cfg.CreateMap<Usuario, UpdateUsuarioViewModel>()
                 .ForMember(x => x.Name, mo => mo.MapFrom(dest => dest.Nome))
                 .ForMember(x => x.Password, mo => mo.MapFrom(dest => dest.Senha));
 
             });
             IMapper mapper = config.CreateMapper();
             services.AddSingleton(mapper);
+            #endregion
 
+            #region Authentication
             var key = Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("Secret"));
             services.AddAuthentication(x =>
             {
@@ -91,8 +93,9 @@ namespace TestBackendUser.Api
                     ValidIssuer = Environment.GetEnvironmentVariable("Emissor")
                 };
             });
-            RegisterServices(services);
+            #endregion
 
+            RegisterServices(services);
            
         }
 

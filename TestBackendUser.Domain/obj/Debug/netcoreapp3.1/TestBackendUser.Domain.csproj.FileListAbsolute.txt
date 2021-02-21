@@ -10,7 +10,6 @@ D:\ProjetosAlan\TestBackendUser\TestBackendUser.Domain\obj\Debug\netcoreapp3.1\T
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Domain\bin\Debug\netcoreapp3.1\TestBackendUser.Domain.deps.json
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Domain\bin\Debug\netcoreapp3.1\TestBackendUser.Domain.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Domain\bin\Debug\netcoreapp3.1\TestBackendUser.Domain.pdb
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Domain\obj\Debug\netcoreapp3.1\TestBackendUser.Domain.csprojAssemblyReference.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Domain\obj\Debug\netcoreapp3.1\TestBackendUser.Domain.AssemblyInfoInputs.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Domain\obj\Debug\netcoreapp3.1\TestBackendUser.Domain.AssemblyInfo.cs
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Domain\obj\Debug\netcoreapp3.1\TestBackendUser.Domain.csproj.CoreCompileInputs.cache

@@ -16,6 +16,10 @@ D:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\Test
 D:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.csproj.CopyComplete
 D:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.dll
 D:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.pdb
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.csprojAssemblyReference.cache
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.AssemblyInfoInputs.cache
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.AssemblyInfo.cs
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.csproj.CoreCompileInputs.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\bin\Debug\netcoreapp3.1\TestBackendUser.Ioc.deps.json
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\bin\Debug\netcoreapp3.1\TestBackendUser.Ioc.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\bin\Debug\netcoreapp3.1\TestBackendUser.Ioc.pdb
@@ -27,10 +31,6 @@ C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\bin\Debug\netcoreapp3.1\Test
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\bin\Debug\netcoreapp3.1\TestBackendUser.Service.pdb
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\bin\Debug\netcoreapp3.1\TestBackendUser.CrossCutting.pdb
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\bin\Debug\netcoreapp3.1\TestBackendUser.Infra.pdb
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.csprojAssemblyReference.cache
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.AssemblyInfoInputs.cache
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.AssemblyInfo.cs
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.csproj.CoreCompileInputs.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.csproj.CopyComplete
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Ioc\obj\Debug\netcoreapp3.1\TestBackendUser.Ioc.pdb

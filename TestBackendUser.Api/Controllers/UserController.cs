@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TestBackendUser.Domain.Commands;
-using TestBackendUser.Service;
+using TestBackendUser.Service.Interfaces;
 
 namespace TestBackendUser.Api.Controllers
 {
@@ -14,29 +11,31 @@ namespace TestBackendUser.Api.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly UserService _userService;
-        public UserController(UserService userService)
+        private readonly IUserService _userService;
+        public UserController(IUserService userService)
         {
             _userService = userService;
         }
-       
-        [HttpPost]
-        [Route("create")]
+
+        [HttpPost]  
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult> Create(UserCommand command)
         {
-            var response = _userService.Insert(command);
+            var response = await _userService.Insert(command);
 
             if (response.Errors.Count > 0 || !response.Success)
                 return BadRequest(response);
 
-            return Ok(response);
+            return new CreatedResult(nameof(GetUserById),response);
         }
         [HttpPut]
         [Authorize]
-        [Route("update")]
-        public async Task<ActionResult> Update([FromBody] UserCommand command)
-        {           
-            var response = _userService.Update(command);
+        [Route("{userId}")]
+        public async Task<ActionResult> Update([FromBody] UpdateUserCommand command,int userId)
+        {
+            command.Id = userId;
+            var response = await _userService.Update(command);
 
             if (response.Errors.Count > 0 || !response.Success)
                 return BadRequest(response);
@@ -47,7 +46,7 @@ namespace TestBackendUser.Api.Controllers
         [Authorize]
         public async Task<ActionResult> Delete(DeleteUserCommand command)
         {
-            var response = _userService.Delete(command);
+            var response = await _userService.Delete(command);
 
             if (response.Errors.Count > 0 || !response.Success)
                 return BadRequest(response);
@@ -57,7 +56,18 @@ namespace TestBackendUser.Api.Controllers
         [HttpGet]
         public async Task<ActionResult> GetAllUsers()
         {
-            var response = _userService.GetAllUsers();
+            var response = await _userService.GetAllUsers();
+
+            if (response.Errors.Count > 0 || !response.Success)
+                return BadRequest(response);
+
+            return Ok(response);
+        }
+        [HttpGet]
+        [Route("{userId}")]
+        public async Task<ActionResult> GetUserById(int userId)
+        {
+            var response = await _userService.GetUserById(userId);
 
             if (response.Errors.Count > 0 || !response.Success)
                 return BadRequest(response);

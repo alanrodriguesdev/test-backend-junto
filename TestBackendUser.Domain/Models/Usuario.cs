@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestBackendUser.Domain.Models
+﻿namespace TestBackendUser.Domain.Models
 {
     public class Usuario
     {

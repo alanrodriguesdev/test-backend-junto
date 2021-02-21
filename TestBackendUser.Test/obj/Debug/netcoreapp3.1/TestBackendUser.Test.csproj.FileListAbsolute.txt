@@ -1,3 +1,7 @@
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.csprojAssemblyReference.cache
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.AssemblyInfoInputs.cache
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.AssemblyInfo.cs
+C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.csproj.CoreCompileInputs.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\netcoreapp3.1\testhost.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\netcoreapp3.1\appsettings.json
@@ -162,10 +166,6 @@ C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\netcoreapp3.1\Tes
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\netcoreapp3.1\TestBackendUser.Domain.pdb
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\netcoreapp3.1\TestBackendUser.Infra.pdb
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\bin\Debug\netcoreapp3.1\TestBackendUser.Ioc.pdb
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.csprojAssemblyReference.cache
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.AssemblyInfoInputs.cache
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.AssemblyInfo.cs
-C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.csproj.CoreCompileInputs.cache
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.csproj.CopyComplete
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.dll
 C:\ProjetosAlan\TestBackendUser\TestBackendUser.Test\obj\Debug\netcoreapp3.1\TestBackendUser.Test.pdb
