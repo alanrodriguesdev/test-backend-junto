@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using TestBackendUser.Domain.Commands;
 
 namespace TestBackendUser.Service
 {
     public class UserBaseService
     {
-        public List<string> ValidatesUser(UserCommand command)
+        public async Task<List<string>> ValidatesUser(UserCommand command)
         {
             var errors = new List<string>();
 
@@ -25,11 +26,11 @@ namespace TestBackendUser.Service
 
             return errors;
         }
-        public List<string> ValidatesUpdateUser(UpdateUserCommand command)
+        public async Task<List<string>> ValidatesUpdateUser(UpdateUserCommand command,int userId)
         {
             var errors = new List<string>();
 
-            if (command.Id <= 0)
+            if (userId <= 0)
                 errors.Add("UserId inválido");
 
             if (string.IsNullOrEmpty(command.Name) || command.Name.Length > 100)
@@ -47,7 +48,7 @@ namespace TestBackendUser.Service
 
             return errors;
         }
-        public List<string> ValidaDelete(DeleteUserCommand command)
+        public async Task<List<string>> ValidaDelete(DeleteUserCommand command)
         {
             var errors = new List<string>();
 
@@ -56,7 +57,7 @@ namespace TestBackendUser.Service
 
             return errors;
         }
-        public List<string> ValidaLogin(LoginCommand command)
+        public async Task<List<string>> ValidaLogin(LoginCommand command)
         {
             var errors = new List<string>();
 

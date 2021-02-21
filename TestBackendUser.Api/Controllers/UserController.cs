@@ -34,8 +34,8 @@ namespace TestBackendUser.Api.Controllers
         [Route("{userId}")]
         public async Task<ActionResult> Update([FromBody] UpdateUserCommand command,int userId)
         {
-            command.Id = userId;
-            var response = await _userService.Update(command);
+           
+            var response = await _userService.Update(command,userId);
 
             if (response.Errors.Count > 0 || !response.Success)
                 return BadRequest(response);

@@ -14,7 +14,7 @@ namespace TestBackendUser.Service
     public class UserService : UserBaseService, IUserService
     {
         private readonly IUserRepository _userRepositories;
-        IMapper _mapper;
+        private readonly IMapper _mapper;
         public UserService(IUserRepository userRepositories, IMapper mapper)
         {
             _userRepositories = userRepositories;
@@ -24,7 +24,7 @@ namespace TestBackendUser.Service
         {
             try
             {
-                var errors = ValidaLogin(command);
+                var errors = await ValidaLogin(command);
                 Usuario user = null;
 
                 if (errors.Count == 0)
@@ -48,14 +48,15 @@ namespace TestBackendUser.Service
         {
             try
             {
-                var errors = ValidatesUser(command);
+                var errors = await ValidatesUser(command);
 
                 if (await _userRepositories.ExistEmail(command.Email))
                     errors.Add("Este login já foi cadastrado no sistema");
 
                 if (errors.Count == 0)
                 {
-                    Usuario newUser = await _userRepositories.Insert(new Usuario() { Email = command.Email, Nome = command.Name, Senha = command.Password });
+                    Usuario usuario = new Usuario() { Email = command.Email, Nome = command.Name, Senha = command.Password };
+                    var newUser = await _userRepositories.Insert(usuario);
                     return new UserResponse(newUser != null, Mapper(newUser), errors);
                 }
 
@@ -108,11 +109,11 @@ namespace TestBackendUser.Service
                 return new UserResponse(false, ex, new List<string>());
             }
         }
-        public async Task<UserResponse> Update(UpdateUserCommand command)
+        public async Task<UserResponse> Update(UpdateUserCommand command,int userId)
         {
             try
             {
-                var errors = ValidatesUpdateUser(command);
+                var errors = await ValidatesUpdateUser(command,userId);
 
                 if ( await _userRepositories.ExistEmail(command.Email))
                     errors.Add("Este email já foi cadastrado no sistema");
@@ -121,7 +122,7 @@ namespace TestBackendUser.Service
                 {
                     var usuario = new Usuario()
                     {
-                        Id = command.Id,
+                        Id = userId,
                         Nome = command.Name,
                         Email = command.Email,
                         Senha = command.Password
@@ -143,9 +144,9 @@ namespace TestBackendUser.Service
         {
             try
             {
-                var errors = ValidaDelete(command);
+                var errors = await ValidaDelete(command);
 
-                if (_userRepositories.SelectByUserId(command.UserId) == null)
+                if (await _userRepositories.SelectByUserId(command.UserId) == null)
                     errors.Add("Este usuário não existe");
 
                 if (errors.Count == 0)

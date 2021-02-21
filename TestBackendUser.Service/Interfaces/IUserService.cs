@@ -10,7 +10,7 @@ namespace TestBackendUser.Service.Interfaces
         Task<UserResponse> Insert(UserCommand command);
         Task<UserResponse> GetAllUsers();
         Task<UserResponse> GetUserById(int userId);
-        Task<UserResponse> Update(UpdateUserCommand command);
+        Task<UserResponse> Update(UpdateUserCommand command,int userId);
         Task<UserResponse> Delete(DeleteUserCommand command);
 
     }

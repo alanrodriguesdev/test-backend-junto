@@ -1,6 +1,10 @@
-﻿using System;
+﻿using AutoMapper;
+using Moq;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using TestBackendUser.Domain.Interfaces;
+using TestBackendUser.Service;
 
 namespace TestBackendUser.Test.Services
 {
@@ -8,19 +12,19 @@ namespace TestBackendUser.Test.Services
     {
         public class UserServiceTests
         {
-            //private readonly Mock<IUserRepository> _mockUserRepository;
-            //private readonly Mock<IMapper> _mockMapper;
-            //private readonly UserService _userService;
+            private readonly Mock<IUserRepository> _mockUserRepository;
+            private readonly Mock<IMapper> _mockMapper;
+            private readonly UserService _userService;
 
-            //public UserServiceTests()
-            //{
-            //    _mockUserRepository = new Mock<IUserRepository>();
-            //    _mockMapper = new Mock<IMapper>();
+            public UserServiceTests()
+            {
+                _mockUserRepository = new Mock<IUserRepository>();
+                _mockMapper = new Mock<IMapper>();
 
-            //    _userService = new UserService(
-            //        _mockUserRepository.Object,
-            //        _mockMapper.Object);
-            //}
+                _userService = new UserService(
+                    _mockUserRepository.Object,
+                    _mockMapper.Object);
+            }
 
             //[Fact]
             //public async void Login_ShouldLogin_WhenDataIsValid()
