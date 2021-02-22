@@ -31,13 +31,17 @@ namespace TestBackendUser.Infra.Repository
                 return await SelectByUserId(usuarioId);
             }
         }
-
         public async Task<bool> ExistEmail(string email)
         {
 
             using var _conn = ConnectionFactory.GetOpenConnection();            
-                return await _conn.ExecuteScalarAsync<bool>(selectEmail, new { email });
-            
+                return await _conn.ExecuteScalarAsync<bool>(selectEmail, new { email });            
+        }
+        public async Task<bool> ExistEmailUpdate(string email,int userId)
+        {
+
+            using var _conn = ConnectionFactory.GetOpenConnection();
+            return await _conn.ExecuteScalarAsync<bool>(selectEmailUpdate, new { email,userId });
         }
         public async Task<Usuario> SelectByUserId(int usuarioId)
         {

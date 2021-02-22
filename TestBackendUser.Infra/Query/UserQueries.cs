@@ -11,6 +11,10 @@ namespace TestBackendUser.Infra.Repository
         private const string selectEmail = @"
             SELECT COUNT(Id) FROM Usuario
                 WHERE email = @email";
+        private const string selectEmailUpdate = @"
+            SELECT COUNT(Id) FROM Usuario
+                WHERE email = @email
+                AND Id <> @userId";
         #endregion
 
         #region INSERT's

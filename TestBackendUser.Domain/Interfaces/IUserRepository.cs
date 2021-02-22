@@ -12,6 +12,7 @@ namespace TestBackendUser.Domain.Interfaces
         Task<Usuario> Insert(Usuario usuario);
         Task<Usuario> Update(Usuario usuario);
         Task<bool> ExistEmail(string email);
+        Task<bool> ExistEmailUpdate(string email, int userId);
         Task<Usuario> SelectByUserId(int usuarioId);
         Task<IEnumerable<Usuario>> SelectAllUsers();
         void Delete(int usuarioId);

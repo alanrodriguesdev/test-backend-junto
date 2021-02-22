@@ -109,13 +109,14 @@ namespace TestBackendUser.Service
                 return new UserResponse(false, ex, new List<string>());
             }
         }
-        public async Task<UserResponse> Update(UpdateUserCommand command,int userId)
+        public async Task<UserResponse> Update(UpdateUserCommand command, int userId)
         {
             try
             {
-                var errors = await ValidatesUpdateUser(command,userId);
+                var errors = await ValidatesUpdateUser(command, userId);
 
-                if ( await _userRepositories.ExistEmail(command.Email))
+
+                if (await _userRepositories.ExistEmailUpdate(command.Email, userId))
                     errors.Add("Este email já foi cadastrado no sistema");
 
                 if (errors.Count == 0)

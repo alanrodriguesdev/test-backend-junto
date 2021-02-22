@@ -277,7 +277,11 @@ namespace TestBackendUser.XUnitTest.Services
                 Email = "email@email.com",
                 Password = "1234"
             };
-            int userId = 4;           
+            int userId = 4;
+
+            _mockUserRepository
+            .Setup(x => x.ExistEmailUpdate(It.IsAny<string>(),It.IsAny<int>()))
+            .ReturnsAsync(() => false );
 
             _mockUserRepository
                 .Setup(x => x.Update(It.IsAny<Usuario>()))
